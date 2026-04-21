@@ -4139,16 +4139,10 @@
 			}
 		}
 	</style>
-	<link rel="icon"
-		href="./Inicio - T&amp;CH_files/logosinfondo.png"
-		sizes="32x32">
-	<link rel="icon"
-		href="./Inicio - T&amp;CH_files/logosinfondo.png"
-		sizes="192x192">
-	<link rel="apple-touch-icon"
-		href="./Inicio - T&amp;CH_files/logosinfondo.png">
-	<meta name="msapplication-TileImage"
-		content="./Inicio - T&amp;CH_files/logosinfondo.png">
+	<link rel="icon" href="./Inicio - T&amp;CH_files/logosinfondo.png" sizes="32x32">
+	<link rel="icon" href="./Inicio - T&amp;CH_files/logosinfondo.png" sizes="192x192">
+	<link rel="apple-touch-icon" href="./Inicio - T&amp;CH_files/logosinfondo.png">
+	<meta name="msapplication-TileImage" content="./Inicio - T&amp;CH_files/logosinfondo.png">
 </head>
 
 <body itemtype="https://schema.org/WebPage" itemscope="itemscope"
@@ -4481,6 +4475,58 @@
 											</div>
 										</div>
 									</div>
+					<!-- PODCAST BANNER SLIDER -->
+					<div id="podcast-banner-section" style="
+						width: 100%;
+						max-width: 1200px;
+						margin: 30px auto;
+						padding: 0 20px;
+						box-sizing: border-box;
+						overflow: hidden;
+					">
+						<style>
+							@keyframes slideInFromRight {
+								0% { transform: translateX(100%); opacity: 0; }
+								100% { transform: translateX(0); opacity: 1; }
+							}
+							@keyframes pulse-glow {
+								0%, 100% { box-shadow: 0 4px 20px rgba(48,48,208,0.3); }
+								50% { box-shadow: 0 8px 35px rgba(48,48,208,0.5); }
+							}
+							#podcast-banner-section .podcast-slide {
+								animation: slideInFromRight 1s ease-out forwards;
+								border-radius: 16px;
+								overflow: hidden;
+								cursor: pointer;
+								transition: transform 0.3s ease, box-shadow 0.3s ease;
+								animation: pulse-glow 3s ease-in-out infinite;
+							}
+							#podcast-banner-section .podcast-slide:hover {
+								transform: scale(1.02);
+								box-shadow: 0 12px 40px rgba(48,48,208,0.6);
+							}
+							#podcast-banner-section .podcast-slide img {
+								width: 100%;
+								height: auto;
+								display: block;
+								border-radius: 16px;
+							}
+							@media (max-width: 768px) {
+								#podcast-banner-section {
+									margin: 15px auto;
+									padding: 0 10px;
+								}
+							}
+						</style>
+						<div class="podcast-slide">
+							<a href="https://asepsis.pe/recursos/" title="Podcast - Tratamiento del Instrumental Quirúrgico en Punto de Uso">
+								<img src="./imagenes/podcast.png"
+									alt="Podcast T&amp;CH Asepsis - Tratamiento del Instrumental Quirúrgico en Punto de Uso - 22 de abril 14:00h - Presentado por Rosa Carbajal"
+									loading="lazy">
+							</a>
+						</div>
+					</div>
+					<!-- FIN PODCAST BANNER SLIDER -->
 									<div class="elementor-element elementor-element-d6e7ce8 e-con-full e-flex e-con e-parent e-lazyloaded"
 										data-id="d6e7ce8" data-element_type="container">
 										<div class="elementor-element elementor-element-ba9e54f e-con-full e-flex e-con e-child"
@@ -5224,7 +5270,7 @@
 																<div class="elementor-widget-container">
 																	<div class="elementor-custom-embed">
 																		<iframe loading="lazy"
-																			src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m4!2m1!1sJir%C3%B3n+Diego+de+Almagro+531,+Lima!5e0!6i15"
+																			src="./Inicio - T&amp;CH_files/maps.html"
 																			title="Jirón Diego de Almagro 531, Lima"
 																			aria-label="Jirón Diego de Almagro 531, Lima"
 																			data-gtm-yt-inspected-9="true"></iframe>
@@ -5240,7 +5286,7 @@
 																<div class="elementor-widget-container">
 																	<div class="elementor-custom-embed">
 																		<iframe loading="lazy"
-																			src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m4!2m1!1sProlongacion+Cesar+Vallejo+Manzana+57,+Trujillo+13006!5e0!6i15"
+																			src="./Inicio - T&amp;CH_files/maps(1).html"
 																			title="Prolongacion Cesar Vallejo Manzana 57, Trujillo 13006"
 																			aria-label="Prolongacion Cesar Vallejo Manzana 57, Trujillo 13006"
 																			data-gtm-yt-inspected-9="true"></iframe>
@@ -5492,7 +5538,8 @@
 										<ul id="menu-recursos" class="menu">
 											<li id="menu-item-5371"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5371">
-												<a href="https://www.youtube.com/watch?v=hJ01TD4OVVk&t=220s" target="_blank" class="menu-link">Webinars</a>
+												<a href="https://www.youtube.com/watch?v=hJ01TD4OVVk&t=220s"
+													target="_blank" class="menu-link">Webinars</a>
 											</li>
 											<li id="menu-item-5375"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5375">
