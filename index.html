@@ -4481,6 +4481,23 @@
 											</div>
 										</div>
 									</div>
+									<!-- PODCAST BANNER SLIDER -->
+									<div id="podcast-banner-section" style="width:100%;max-width:1200px;margin:30px auto;padding:0 20px;box-sizing:border-box;overflow:hidden;">
+										<style>
+											@keyframes slideInFromRight { 0% { transform: translateX(100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+											@keyframes pulse-glow { 0%, 100% { box-shadow: 0 4px 20px rgba(48,48,208,0.3); } 50% { box-shadow: 0 8px 35px rgba(48,48,208,0.5); } }
+											#podcast-banner-section .podcast-slide { animation: pulse-glow 3s ease-in-out infinite; border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+											#podcast-banner-section .podcast-slide:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(48,48,208,0.6); }
+											#podcast-banner-section .podcast-slide img { width: 100%; height: auto; display: block; border-radius: 16px; }
+											@media (max-width: 768px) { #podcast-banner-section { margin: 15px auto; padding: 0 10px; } }
+										</style>
+										<div class="podcast-slide">
+											<a href="https://asepsis.pe/recursos/" title="Podcast - Tratamiento del Instrumental Quirurgico en Punto de Uso">
+												<img src="./imagenes/podcast.png" alt="Podcast T and CH Asepsis - Tratamiento del Instrumental Quirurgico en Punto de Uso - 22 de abril 14:00h" loading="lazy">
+											</a>
+										</div>
+									</div>
+									<!-- FIN PODCAST BANNER SLIDER -->
 									<div class="elementor-element elementor-element-d6e7ce8 e-con-full e-flex e-con e-parent e-lazyloaded"
 										data-id="d6e7ce8" data-element_type="container">
 										<div class="elementor-element elementor-element-ba9e54f e-con-full e-flex e-con e-child"
