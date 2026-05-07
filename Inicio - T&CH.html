@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- saved from url=(0016)https://asepsis-pe.pages.dev/ -->
 <html lang="es">
 
@@ -4475,212 +4475,6 @@
 											</div>
 										</div>
 									</div>
-									<!-- PODCAST BANNER SLIDER -->
-									<div id="podcast-banner-section" style="
-						width: 100%;
-						max-width: 1200px;
-						margin: 30px auto;
-						padding: 0 20px;
-						box-sizing: border-box;
-						overflow: hidden;
-					">
-										<style>
-											@keyframes pulse-glow {
-
-												0%,
-												100% {
-													box-shadow: 0 4px 20px rgba(48, 48, 208, 0.3);
-												}
-
-												50% {
-													box-shadow: 0 8px 35px rgba(48, 48, 208, 0.5);
-												}
-											}
-
-											#podcast-banner-section .podcast-slider-wrapper {
-												position: relative;
-												border-radius: 16px;
-												overflow: hidden;
-												animation: pulse-glow 3s ease-in-out infinite;
-											}
-
-											#podcast-banner-section .podcast-slider-wrapper:hover {
-												transform: scale(1.02);
-												box-shadow: 0 12px 40px rgba(48, 48, 208, 0.6);
-												transition: transform 0.3s ease, box-shadow 0.3s ease;
-											}
-
-											#podcast-banner-section .podcast-slides-track {
-												display: flex;
-												transition: transform 0.5s ease-in-out;
-												width: 300%;
-											}
-
-											#podcast-banner-section .podcast-slide {
-												width: 33.333%;
-												flex-shrink: 0;
-												cursor: pointer;
-											}
-
-											#podcast-banner-section .podcast-slide img {
-												width: 100%;
-												height: auto;
-												display: block;
-											}
-
-											#podcast-banner-section .podcast-arrow {
-												position: absolute;
-												top: 50%;
-												transform: translateY(-50%);
-												background: rgba(255, 255, 255, 0.85);
-												border: none;
-												color: #3030d0;
-												font-size: 28px;
-												font-weight: bold;
-												width: 48px;
-												height: 48px;
-												border-radius: 50%;
-												cursor: pointer;
-												z-index: 10;
-												display: flex;
-												align-items: center;
-												justify-content: center;
-												box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-												transition: background 0.3s ease, transform 0.2s ease;
-												line-height: 1;
-											}
-
-											#podcast-banner-section .podcast-arrow:hover {
-												background: #3030d0;
-												color: #fff;
-												transform: translateY(-50%) scale(1.1);
-											}
-
-											#podcast-banner-section .podcast-arrow-left {
-												left: 15px;
-											}
-
-											#podcast-banner-section .podcast-arrow-right {
-												right: 15px;
-											}
-
-											#podcast-banner-section .podcast-dots {
-												display: flex;
-												justify-content: center;
-												gap: 10px;
-												margin-top: 12px;
-											}
-
-											#podcast-banner-section .podcast-dot {
-												width: 12px;
-												height: 12px;
-												border-radius: 50%;
-												background: #ccc;
-												border: none;
-												cursor: pointer;
-												transition: background 0.3s ease, transform 0.2s ease;
-											}
-
-											#podcast-banner-section .podcast-dot.active {
-												background: #3030d0;
-												transform: scale(1.2);
-											}
-
-											@media (max-width: 768px) {
-												#podcast-banner-section {
-													margin: 15px auto;
-													padding: 0 10px;
-												}
-
-												#podcast-banner-section .podcast-arrow {
-													width: 36px;
-													height: 36px;
-													font-size: 20px;
-												}
-
-												#podcast-banner-section .podcast-arrow-left {
-													left: 8px;
-												}
-
-												#podcast-banner-section .podcast-arrow-right {
-													right: 8px;
-												}
-											}
-										</style>
-										<div class="podcast-slider-wrapper">
-											<div class="podcast-slides-track" id="podcastTrack">
-												<div class="podcast-slide">
-													<a href="https://asepsis.pe/recursos/"
-														title="Podcast - Tratamiento del Instrumental Quirúrgico en Punto de Uso">
-														<!-- primer banner -->
-														<img src="./imagenes/seminario.jpg"
-															alt="Podcast T&amp;CH Asepsis - Tratamiento del Instrumental Quirúrgico en Punto de Uso"
-															loading="lazy">
-													</a>
-												</div>
-												<div class="podcast-slide">
-													<a href="https://asepsis.pe/recursos/"
-														title="Podcast T&amp;CH Asepsis">
-														<img src="./Inicio - T&amp;CH_files/podcast.png"
-															alt="Podcast T&amp;CH Asepsis" loading="lazy">
-													</a>
-												</div>
-												<div class="podcast-slide">
-													<a href="https://asepsis.pe/recursos/"
-														title="Podcast T&amp;CH Asepsis 2">
-														<img src="./Inicio - T&amp;CH_files/podcast2.png"
-															alt="Podcast T&amp;CH Asepsis 2" loading="lazy">
-													</a>
-												</div>
-											</div>
-											<button class="podcast-arrow podcast-arrow-left"
-												onclick="movePodcastSlide(-1)" aria-label="Anterior">&#10094;</button>
-											<button class="podcast-arrow podcast-arrow-right"
-												onclick="movePodcastSlide(1)" aria-label="Siguiente">&#10095;</button>
-										</div>
-										<div class="podcast-dots">
-											<button class="podcast-dot active" onclick="goToPodcastSlide(0)"
-												aria-label="Imagen 1"></button>
-											<button class="podcast-dot" onclick="goToPodcastSlide(1)"
-												aria-label="Imagen 2"></button>
-											<button class="podcast-dot" onclick="goToPodcastSlide(2)"
-												aria-label="Imagen 3"></button>
-										</div>
-										<script>
-											(function () {
-												var currentSlide = 0;
-												var totalSlides = 3;
-												var autoTimer;
-												function updateSlider() {
-													var track = document.getElementById('podcastTrack');
-													if (track) track.style.transform = 'translateX(-' + (currentSlide * 33.333) + '%)';
-													var dots = document.querySelectorAll('#podcast-banner-section .podcast-dot');
-													dots.forEach(function (d, i) {
-														d.classList.toggle('active', i === currentSlide);
-													});
-												}
-												window.movePodcastSlide = function (dir) {
-													currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-													updateSlider();
-													resetAutoPlay();
-												};
-												window.goToPodcastSlide = function (index) {
-													currentSlide = index;
-													updateSlider();
-													resetAutoPlay();
-												};
-												function resetAutoPlay() {
-													clearInterval(autoTimer);
-													autoTimer = setInterval(function () {
-														currentSlide = (currentSlide + 1) % totalSlides;
-														updateSlider();
-													}, 5000);
-												}
-												resetAutoPlay();
-											})();
-										</script>
-									</div>
-									<!-- FIN PODCAST BANNER SLIDER -->
 									<div class="elementor-element elementor-element-d6e7ce8 e-con-full e-flex e-con e-parent e-lazyloaded"
 										data-id="d6e7ce8" data-element_type="container">
 										<div class="elementor-element elementor-element-ba9e54f e-con-full e-flex e-con e-child"
@@ -5288,6 +5082,212 @@
 														<h2 class="elementor-heading-title elementor-size-default">
 															Recursos</h2>
 													</div>
+									<!-- PODCAST BANNER SLIDER -->
+									<div id="podcast-banner-section" style="
+						width: 100%;
+						max-width: 1200px;
+						margin: 30px auto;
+						padding: 0 20px;
+						box-sizing: border-box;
+						overflow: hidden;
+					">
+										<style>
+											@keyframes pulse-glow {
+
+												0%,
+												100% {
+													box-shadow: 0 4px 20px rgba(48, 48, 208, 0.3);
+												}
+
+												50% {
+													box-shadow: 0 8px 35px rgba(48, 48, 208, 0.5);
+												}
+											}
+
+											#podcast-banner-section .podcast-slider-wrapper {
+												position: relative;
+												border-radius: 16px;
+												overflow: hidden;
+												animation: pulse-glow 3s ease-in-out infinite;
+											}
+
+											#podcast-banner-section .podcast-slider-wrapper:hover {
+												transform: scale(1.02);
+												box-shadow: 0 12px 40px rgba(48, 48, 208, 0.6);
+												transition: transform 0.3s ease, box-shadow 0.3s ease;
+											}
+
+											#podcast-banner-section .podcast-slides-track {
+												display: flex;
+												transition: transform 0.5s ease-in-out;
+												width: 300%;
+											}
+
+											#podcast-banner-section .podcast-slide {
+												width: 33.333%;
+												flex-shrink: 0;
+												cursor: pointer;
+											}
+
+											#podcast-banner-section .podcast-slide img {
+												width: 100%;
+												height: auto;
+												display: block;
+											}
+
+											#podcast-banner-section .podcast-arrow {
+												position: absolute;
+												top: 50%;
+												transform: translateY(-50%);
+												background: rgba(255, 255, 255, 0.85);
+												border: none;
+												color: #3030d0;
+												font-size: 28px;
+												font-weight: bold;
+												width: 48px;
+												height: 48px;
+												border-radius: 50%;
+												cursor: pointer;
+												z-index: 10;
+												display: flex;
+												align-items: center;
+												justify-content: center;
+												box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+												transition: background 0.3s ease, transform 0.2s ease;
+												line-height: 1;
+											}
+
+											#podcast-banner-section .podcast-arrow:hover {
+												background: #3030d0;
+												color: #fff;
+												transform: translateY(-50%) scale(1.1);
+											}
+
+											#podcast-banner-section .podcast-arrow-left {
+												left: 15px;
+											}
+
+											#podcast-banner-section .podcast-arrow-right {
+												right: 15px;
+											}
+
+											#podcast-banner-section .podcast-dots {
+												display: flex;
+												justify-content: center;
+												gap: 10px;
+												margin-top: 12px;
+											}
+
+											#podcast-banner-section .podcast-dot {
+												width: 12px;
+												height: 12px;
+												border-radius: 50%;
+												background: #ccc;
+												border: none;
+												cursor: pointer;
+												transition: background 0.3s ease, transform 0.2s ease;
+											}
+
+											#podcast-banner-section .podcast-dot.active {
+												background: #3030d0;
+												transform: scale(1.2);
+											}
+
+											@media (max-width: 768px) {
+												#podcast-banner-section {
+													margin: 15px auto;
+													padding: 0 10px;
+												}
+
+												#podcast-banner-section .podcast-arrow {
+													width: 36px;
+													height: 36px;
+													font-size: 20px;
+												}
+
+												#podcast-banner-section .podcast-arrow-left {
+													left: 8px;
+												}
+
+												#podcast-banner-section .podcast-arrow-right {
+													right: 8px;
+												}
+											}
+										</style>
+										<div class="podcast-slider-wrapper">
+											<div class="podcast-slides-track" id="podcastTrack">
+												<div class="podcast-slide">
+													<a href="https://asepsis.pe/recursos/"
+														title="Podcast - Tratamiento del Instrumental Quirúrgico en Punto de Uso">
+														<!-- primer banner -->
+														<img src="./imagenes/seminario.jpg"
+															alt="Podcast T&amp;CH Asepsis - Tratamiento del Instrumental Quirúrgico en Punto de Uso"
+															loading="lazy">
+													</a>
+												</div>
+												<div class="podcast-slide">
+													<a href="https://asepsis.pe/recursos/"
+														title="Podcast T&amp;CH Asepsis">
+														<img src="./Inicio - T&amp;CH_files/podcast.png"
+															alt="Podcast T&amp;CH Asepsis" loading="lazy">
+													</a>
+												</div>
+												<div class="podcast-slide">
+													<a href="https://asepsis.pe/recursos/"
+														title="Podcast T&amp;CH Asepsis 2">
+														<img src="./Inicio - T&amp;CH_files/podcast2.png"
+															alt="Podcast T&amp;CH Asepsis 2" loading="lazy">
+													</a>
+												</div>
+											</div>
+											<button class="podcast-arrow podcast-arrow-left"
+												onclick="movePodcastSlide(-1)" aria-label="Anterior">&#10094;</button>
+											<button class="podcast-arrow podcast-arrow-right"
+												onclick="movePodcastSlide(1)" aria-label="Siguiente">&#10095;</button>
+										</div>
+										<div class="podcast-dots">
+											<button class="podcast-dot active" onclick="goToPodcastSlide(0)"
+												aria-label="Imagen 1"></button>
+											<button class="podcast-dot" onclick="goToPodcastSlide(1)"
+												aria-label="Imagen 2"></button>
+											<button class="podcast-dot" onclick="goToPodcastSlide(2)"
+												aria-label="Imagen 3"></button>
+										</div>
+										<script>
+											(function () {
+												var currentSlide = 0;
+												var totalSlides = 3;
+												var autoTimer;
+												function updateSlider() {
+													var track = document.getElementById('podcastTrack');
+													if (track) track.style.transform = 'translateX(-' + (currentSlide * 33.333) + '%)';
+													var dots = document.querySelectorAll('#podcast-banner-section .podcast-dot');
+													dots.forEach(function (d, i) {
+														d.classList.toggle('active', i === currentSlide);
+													});
+												}
+												window.movePodcastSlide = function (dir) {
+													currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+													updateSlider();
+													resetAutoPlay();
+												};
+												window.goToPodcastSlide = function (index) {
+													currentSlide = index;
+													updateSlider();
+													resetAutoPlay();
+												};
+												function resetAutoPlay() {
+													clearInterval(autoTimer);
+													autoTimer = setInterval(function () {
+														currentSlide = (currentSlide + 1) % totalSlides;
+														updateSlider();
+													}, 5000);
+												}
+												resetAutoPlay();
+											})();
+										</script>
+									</div>
+									<!-- FIN PODCAST BANNER SLIDER -->
 												</div>
 											</div>
 											<div class="elementor-element elementor-element-1279a8b e-con-full e-flex e-con e-child"
