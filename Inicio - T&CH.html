@@ -5119,7 +5119,7 @@
 
 											#podcast-banner-section .podcast-slides-track {
 												display: flex;
-												transition: transform 0.5s ease-in-out;
+												transition: transform 1s ease-in-out;
 												width: 300%;
 											}
 
@@ -5258,6 +5258,7 @@
 												var currentSlide = 0;
 												var totalSlides = 3;
 												var autoTimer;
+												var wrapper = document.querySelector('#podcast-banner-section .podcast-slider-wrapper');
 												function updateSlider() {
 													var track = document.getElementById('podcastTrack');
 													if (track) track.style.transform = 'translateX(-' + (currentSlide * 33.333) + '%)';
@@ -5281,7 +5282,16 @@
 													autoTimer = setInterval(function () {
 														currentSlide = (currentSlide + 1) % totalSlides;
 														updateSlider();
-													}, 5000);
+													}, 2000);
+												}
+												function stopAutoPlay() {
+													clearInterval(autoTimer);
+												}
+												if(wrapper) {
+													wrapper.addEventListener('mouseenter', stopAutoPlay);
+													wrapper.addEventListener('mouseleave', resetAutoPlay);
+													wrapper.addEventListener('touchstart', stopAutoPlay, {passive: true});
+													wrapper.addEventListener('touchend', resetAutoPlay, {passive: true});
 												}
 												resetAutoPlay();
 											})();

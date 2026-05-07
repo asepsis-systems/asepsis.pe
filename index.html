@@ -5113,7 +5113,7 @@
 
 															#podcast-banner-section .podcast-slides-track {
 																display: flex;
-																transition: transform 0.5s ease-in-out;
+																transition: transform 1s ease-in-out;
 																width: 300%;
 															}
 
@@ -5242,7 +5242,7 @@
 															<button class="podcast-dot" onclick="goToPodcastSlide(2)"
 																aria-label="Imagen 3"></button>
 														</div>
-														<script>(function () { var c = 0, t = 3, a; function u() { var tr = document.getElementById('podcastTrack'); if (tr) tr.style.transform = 'translateX(-' + (c * 33.333) + '%)'; document.querySelectorAll('#podcast-banner-section .podcast-dot').forEach(function (d, i) { d.classList.toggle('active', i === c) }); } window.movePodcastSlide = function (d) { c = (c + d + t) % t; u(); r(); }; window.goToPodcastSlide = function (i) { c = i; u(); r(); }; function r() { clearInterval(a); a = setInterval(function () { c = (c + 1) % t; u(); }, 5000); } r(); })();</script>
+														<script>(function () { var c = 0, t = 3, a; var w = document.querySelector('#podcast-banner-section .podcast-slider-wrapper'); function u() { var tr = document.getElementById('podcastTrack'); if (tr) tr.style.transform = 'translateX(-' + (c * 33.333) + '%)'; document.querySelectorAll('#podcast-banner-section .podcast-dot').forEach(function (d, i) { d.classList.toggle('active', i === c) }); } window.movePodcastSlide = function (d) { c = (c + d + t) % t; u(); r(); }; window.goToPodcastSlide = function (i) { c = i; u(); r(); }; function r() { clearInterval(a); a = setInterval(function () { c = (c + 1) % t; u(); }, 2000); } function s() { clearInterval(a); } if(w) { w.addEventListener('mouseenter', s); w.addEventListener('mouseleave', r); w.addEventListener('touchstart', s, {passive: true}); w.addEventListener('touchend', r, {passive: true}); } r(); })();</script>
 													</div>
 													<!-- FIN PODCAST BANNER SLIDER -->
 												</div>
