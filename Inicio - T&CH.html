@@ -5898,105 +5898,125 @@
 					src="./Inicio - T&amp;CH_files/anchor.html" data-gtm-yt-inspected-9="true"></iframe></div>
 			<div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response"
 				class="g-recaptcha-response"
-				style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-		</div><iframe style="display: none;" data-gtm-yt-inspected-9="true"
+				style="width: 250px; height: 40px; border: 1px solid rgb(1		</div><iframe style="display: none;" data-gtm-yt-inspected-9="true"
 			src="./Inicio - T&amp;CH_files/saved_resource.html"></iframe>
 	</div>
 	<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		// 1. Counter Animation
-		const counters = document.querySelectorAll(".elementor-counter-number");
-		
-		const animateCounter = (el) => {
-			const target = +el.getAttribute("data-to-value");
-			const duration = +el.getAttribute("data-duration") || 2000;
-			const start = +el.getAttribute("data-from-value") || 0;
-			
-			let startTimestamp = null;
-			const step = (timestamp) => {
-				if (!startTimestamp) startTimestamp = timestamp;
-				const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-				el.innerHTML = Math.floor(progress * (target - start) + start);
-				if (progress < 1) {
-					window.requestAnimationFrame(step);
-				} else {
-					el.innerHTML = target;
-				}
-			};
-			window.requestAnimationFrame(step);
-		};
-
-		const counterObserver = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					animateCounter(entry.target);
-					observer.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.5 });
-
-		counters.forEach(counter => {
-			counter.innerHTML = counter.getAttribute("data-from-value") || "0";
-			counterObserver.observe(counter);
-		});
-
-		// 2. Marquee Animation for Logos
-		const carouselWidgets = document.querySelectorAll(".elementor-widget-image-carousel");
-		carouselWidgets.forEach(widget => {
-			const swiperWrapper = widget.querySelector(".swiper-wrapper");
-			if (swiperWrapper) {
-				// Disable swiper styles that might interfere
-				swiperWrapper.style.transition = 'none';
-				swiperWrapper.style.transform = 'none';
+	window.addEventListener("load", function() {
+		setTimeout(function() {
+			try {
+				// 1. Counter Animation
+				const counters = document.querySelectorAll(".elementor-counter-number");
 				
-				// Clone slides for seamless looping
-				const slides = Array.from(swiperWrapper.children);
-				slides.forEach(slide => {
-					const clone = slide.cloneNode(true);
-					clone.classList.add('clone');
-					clone.setAttribute('aria-hidden', 'true');
-					swiperWrapper.appendChild(clone);
+				const animateCounter = (el) => {
+					const targetVal = el.getAttribute("data-to-value");
+					if (!targetVal) return;
+					const target = parseFloat(targetVal);
+					if (isNaN(target)) return;
+					
+					const duration = parseFloat(el.getAttribute("data-duration")) || 2000;
+					const start = parseFloat(el.getAttribute("data-from-value")) || 0;
+					
+					let startTimestamp = null;
+					const step = (timestamp) => {
+						if (!startTimestamp) startTimestamp = timestamp;
+						const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+						el.innerHTML = Math.floor(progress * (target - start) + start);
+						if (progress < 1) {
+							window.requestAnimationFrame(step);
+						} else {
+							el.innerHTML = target;
+						}
+					};
+					window.requestAnimationFrame(step);
+				};
+
+				const counterObserver = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							animateCounter(entry.target);
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.1 });
+
+				counters.forEach(counter => {
+					counter.innerHTML = counter.getAttribute("data-from-value") || "0";
+					counterObserver.observe(counter);
 				});
 
-				// Apply Marquee CSS
-				const style = document.createElement("style");
-				style.innerHTML = \`
-					.elementor-widget-image-carousel .elementor-widget-container {
-						overflow: hidden;
+				// 2. Marquee Animation for Logos
+				const carouselWidgets = document.querySelectorAll(".elementor-widget-image-carousel");
+				carouselWidgets.forEach(widget => {
+					const swiperWrapper = widget.querySelector(".swiper-wrapper");
+					if (swiperWrapper) {
+						// Attempt to destroy Elementor's Swiper instance to prevent interference
+						if (widget.swiper && typeof widget.swiper.destroy === 'function') {
+							widget.swiper.destroy(true, true);
+						}
+						
+						swiperWrapper.style.transition = 'none';
+						swiperWrapper.style.transform = 'none';
+						
+						// Clone slides
+						const slides = Array.from(swiperWrapper.querySelectorAll('.swiper-slide'));
+						if (swiperWrapper.querySelectorAll('.clone').length === 0) {
+							slides.forEach(slide => {
+								if (!slide.classList.contains('clone') && !slide.classList.contains('swiper-slide-duplicate')) {
+									const clone = slide.cloneNode(true);
+									clone.classList.add('clone');
+									clone.setAttribute('aria-hidden', 'true');
+									swiperWrapper.appendChild(clone);
+								}
+							});
+						}
+
+						const styleId = "marquee-style-" + Math.random().toString(36).substr(2, 9);
+						if (!document.getElementById(styleId)) {
+							const style = document.createElement("style");
+							style.id = styleId;
+							style.innerHTML = \`
+								.elementor-widget-image-carousel .elementor-widget-container {
+									overflow: hidden !important;
+								}
+								.elementor-widget-image-carousel .swiper-wrapper {
+									display: flex !important;
+									flex-wrap: nowrap !important;
+									width: max-content !important;
+									animation: marquee-logos 30s linear infinite !important;
+									transform: none !important;
+								}
+								.elementor-widget-image-carousel .swiper-slide {
+									width: 200px !important;
+									flex-shrink: 0 !important;
+									margin-right: 30px !important;
+									display: flex !important;
+									align-items: center !important;
+									justify-content: center !important;
+								}
+								.elementor-widget-image-carousel .swiper-slide img {
+									max-width: 100% !important;
+									height: auto !important;
+									object-fit: contain !important;
+								}
+								@keyframes marquee-logos {
+									0% { transform: translateX(0); }
+									100% { transform: translateX(-50%); }
+								}
+								.elementor-widget-image-carousel .elementor-swiper-button,
+								.elementor-widget-image-carousel .swiper-pagination {
+									display: none !important;
+								}
+							\`;
+							document.head.appendChild(style);
+						}
 					}
-					.elementor-widget-image-carousel .swiper-wrapper {
-						display: flex !important;
-						flex-wrap: nowrap !important;
-						width: max-content !important;
-						animation: marquee-logos 30s linear infinite !important;
-					}
-					.elementor-widget-image-carousel .swiper-slide {
-						width: 200px !important;
-						flex-shrink: 0;
-						margin-right: 30px;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-					.elementor-widget-image-carousel .swiper-slide img {
-						max-width: 100%;
-						height: auto;
-						object-fit: contain;
-					}
-					@keyframes marquee-logos {
-						0% { transform: translateX(0); }
-						100% { transform: translateX(-50%); }
-					}
-					.elementor-widget-image-carousel .elementor-swiper-button,
-					.elementor-widget-image-carousel .swiper-pagination {
-						display: none !important;
-					}
-				\`;
-				document.head.appendChild(style);
+				});
+			} catch (err) {
+				console.error("Animation injection error:", err);
 			}
-		});
+		}, 1500); // Let Elementor load, then override
 	});
 	</script>
 </body>
-
-</html>
+</html>
