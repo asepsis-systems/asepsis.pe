@@ -80,13 +80,84 @@ itemprop="text"><div data-elementor-type="wp-page" data-elementor-id="4380" clas
 	<div class="e-con-inner"><div class="elementor-element elementor-element-a170be5 e-con-full e-flex e-con e-child" data-id="a170be5" data-element_type="container">
 		<div class="elementor-element elementor-element-38f6658 elementor-widget elementor-widget-heading" data-id="38f6658" data-element_type="widget" data-widget_type="heading.default">
 			<div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">Recursos</h2></div></div></div>
-<!-- BANNER PUBLICITARIO -->
- <div class="elementor-element elementor-widget elementor-widget-image" style="text-align: center; margin: 30px auto; max-width: 1000px; width: 100%; padding: 0 15px;">
-	<div class="elementor-widget-container" style="margin-bottom: 25px;"><a href="https://www.youtube.com/@Asepsis_Peru/streams" target="_blank" style="display: block;">
-		<img src="imagenes/17junios.png" alt="Podcast 17 de Junio" style="width: 100%; border-radius: 16px; box-shadow: 0 8px 30px rgba(48, 48, 208, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(48, 48, 208, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 30px rgba(48, 48, 208, 0.2)'"></a></div>
-	<div class="elementor-widget-container"><a href="https://www.youtube.com/@Asepsis_Peru/streams" target="_blank" style="display: block;">
-		<img src="imagenes/17junio2.png" alt="Podcast 17 de Junio Segunda Imagen" style="width: 100%; border-radius: 16px; box-shadow: 0 8px 30px rgba(48, 48, 208, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(48, 48, 208, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 30px rgba(48, 48, 208, 0.2)'"></a></div></div>
-		<!-- FIN BANNER PUBLICITARIO -->
+<!-- SLIDER DE BANNERS PUBLICITARIOS -->
+<div class="podcast-banner-slider" style="position: relative; max-width: 1000px; margin: 30px auto; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 30px rgba(48, 48, 208, 0.2); width: 100%; background: #000;">
+  <div class="slides-container" style="display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); width: 200%;">
+    <div class="slide-item" style="width: 50%; flex-shrink: 0; padding: 0; line-height: 0;">
+      <a href="https://www.youtube.com/@Asepsis_Peru/streams" target="_blank" style="display: block;">
+        <img src="imagenes/17junios.png" alt="Podcast 17 de Junio - 1" style="width: 100%; display: block; border-radius: 16px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+    </div>
+    <div class="slide-item" style="width: 50%; flex-shrink: 0; padding: 0; line-height: 0;">
+      <a href="https://www.youtube.com/@Asepsis_Peru/streams" target="_blank" style="display: block;">
+        <img src="imagenes/17junio2.png" alt="Podcast 17 de Junio - 2" style="width: 100%; display: block; border-radius: 16px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+    </div>
+  </div>
+  
+  <!-- Controles del Slider -->
+  <button class="slider-btn prev-btn" onclick="movePodcastSlide(-1)" aria-label="Anterior" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.4); width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 10; transition: background 0.3s, transform 0.2s;" onmouseover="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.transform='translateY(-50%) scale(1.1)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.35)'; this.style.transform='translateY(-50%) scale(1)';">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3030d0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="slider-btn next-btn" onclick="movePodcastSlide(1)" aria-label="Siguiente" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.4); width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 10; transition: background 0.3s, transform 0.2s;" onmouseover="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.transform='translateY(-50%) scale(1.1)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.35)'; this.style.transform='translateY(-50%) scale(1)';">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3030d0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+  
+  <!-- Puntos Indicadores -->
+  <div class="slider-dots" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; background: rgba(0, 0, 0, 0.4); padding: 6px 12px; border-radius: 20px; backdrop-filter: blur(4px);">
+    <span class="podcast-dot active" onclick="setPodcastSlide(0)" style="width: 10px; height: 10px; border-radius: 50%; background: #3030d0; cursor: pointer; transition: background 0.3s, transform 0.3s; transform: scale(1.2);"></span>
+    <span class="podcast-dot" onclick="setPodcastSlide(1)" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: background 0.3s, transform 0.3s;"></span>
+  </div>
+</div>
+
+<script>
+  let currentPodcastSlide = 0;
+  const totalPodcastSlides = 2;
+  
+  function updatePodcastSlider() {
+    const container = document.querySelector('.podcast-banner-slider .slides-container');
+    if (container) {
+      container.style.transform = `translateX(-${currentPodcastSlide * 50}%)`;
+    }
+    
+    // Update dots
+    const dots = document.querySelectorAll('.podcast-banner-slider .podcast-dot');
+    dots.forEach((dot, idx) => {
+      if (idx === currentPodcastSlide) {
+        dot.style.background = '#3030d0';
+        dot.style.transform = 'scale(1.2)';
+      } else {
+        dot.style.background = 'rgba(255, 255, 255, 0.6)';
+        dot.style.transform = 'scale(1)';
+      }
+    });
+  }
+  
+  function movePodcastSlide(direction) {
+    currentPodcastSlide = (currentPodcastSlide + direction + totalPodcastSlides) % totalPodcastSlides;
+    updatePodcastSlider();
+  }
+  
+  function setPodcastSlide(slideIndex) {
+    currentPodcastSlide = slideIndex;
+    updatePodcastSlider();
+  }
+  
+  // Auto-play interval
+  let podcastAutoPlay = setInterval(() => movePodcastSlide(1), 5000);
+  
+  // Reset auto-play on interaction
+  const sliderEl = document.querySelector('.podcast-banner-slider');
+  if (sliderEl) {
+    sliderEl.addEventListener('mouseenter', () => {
+      clearInterval(podcastAutoPlay);
+    });
+    sliderEl.addEventListener('mouseleave', () => {
+      podcastAutoPlay = setInterval(() => movePodcastSlide(1), 5000);
+    });
+  }
+</script>
+<!-- FIN SLIDER DE BANNERS PUBLICITARIOS -->
 		 <div class="elementor-element elementor-element-1279a8b e-con-full e-flex e-con e-child" data-id="1279a8b" data-element_type="container">
 			<div class="elementor-element elementor-element-d339d56 e-con-full e-flex e-con e-child" data-id="d339d56" data-element_type="container">
 				<div class="elementor-element elementor-element-63f5278 elementor-position-top elementor-widget elementor-widget-image-box" data-id="63f5278" data-element_type="widget" data-widget_type="image-box.default"><div class="elementor-widget-container"><div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEyMDAiIHZpZXdCb3g9IjAgMCAxNjAwIDEyMDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" loading="lazy" decoding="async" width="1600" height="1200" data-src="https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?fit=1600%2C1200&amp;ssl=1" class="attachment-full size-full wp-image-5265" alt="" data-srcset="https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?w=1600&amp;ssl=1 1600w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/12/IMG-20240828-WA0022.jpg?resize=1536%2C1152&amp;ssl=1 1536w" data-sizes="(max-width: 1200px) 100vw, 1200px" /></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Capacitaciones</h3></div></div></div></div></div><div class="elementor-element elementor-element-a31ec77 e-con-full e-flex e-con e-child" data-id="a31ec77" data-element_type="container"><div class="elementor-element elementor-element-c818ea2 e-con-full e-flex e-con e-child" data-id="c818ea2" data-element_type="container"><div class="elementor-element elementor-element-73e27ed elementor-widget elementor-widget-heading" data-id="73e27ed" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default"><a href="https://www.youtube.com/watch?v=hJ01TD4OVVk&#038;t=12s">Podcast</a></h3></div></div><div class="elementor-element elementor-element-d5b11e8 elementor-widget elementor-widget-video" data-id="d5b11e8" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=hJ01TD4OVVk&amp;t=178s&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}" data-widget_type="video.default"><div class="elementor-widget-container"><div class="elementor-wrapper elementor-open-inline"><div class="elementor-video"></div></div></div></div></div><div class="elementor-element elementor-element-6264c41 e-con-full e-flex e-con e-child" data-id="6264c41" data-element_type="container"><div class="elementor-element elementor-element-282fe60 elementor-position-top elementor-widget elementor-widget-image-box" data-id="282fe60" data-element_type="widget" data-widget_type="image-box.default"><div class="elementor-widget-container"><div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjU4OCIgdmlld0JveD0iMCAwIDE2MDAgNTg4Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" width="1600" height="588" data-src="https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?fit=1600%2C588&amp;ssl=1" class="attachment-full size-full wp-image-4473" alt="" data-srcset="https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?w=1600&amp;ssl=1 1600w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?resize=300%2C110&amp;ssl=1 300w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?resize=1024%2C376&amp;ssl=1 1024w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?resize=768%2C282&amp;ssl=1 768w, https://i0.wp.com/tych.pe/wp-content/uploads/2024/10/IMG-20240828-WA0072.jpg?resize=1536%2C564&amp;ssl=1 1536w" data-sizes="(max-width: 1200px) 100vw, 1200px" /></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Comunidad Asepsis</h3><p class="elementor-image-box-description">Únete a nuestra comunidad de Whatsapp</p></div></div></div></div></div></div></div><div class="elementor-element elementor-element-5d4337b e-con-full e-flex e-con e-child" data-id="5d4337b" data-element_type="container"><div class="elementor-element elementor-element-53daa40 elementor-align-center elementor-widget elementor-widget-button" data-id="53daa40" data-element_type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
